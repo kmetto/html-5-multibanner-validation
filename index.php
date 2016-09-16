@@ -26,9 +26,9 @@ while($file = $dir->read()){
            ]);
 
         $response = $response->getBody()->getContents();
-        $response = json_decode(substr($response, strpos($response,',')+1));
-
-        echo date("G:i:s",microtime(true))." Файл $file обработан, <a href=\"https://h5validator.appspot.com/adwords/result/{$response->response->result}\" target='_blank'>отчет</a><br>-------------------<br>";
+        $response = json_decode(substr($response, strpos($response,',')+1),false, 512,JSON_BIGINT_AS_STRING);
+		$response = $response->response->result;
+        echo date("G:i:s",microtime(true))." Файл $file обработан, <a href=\"https://h5validator.appspot.com/adwords/result/{$response}\" target='_blank'>отчет</a><br>-------------------<br>";
 
     }
 
