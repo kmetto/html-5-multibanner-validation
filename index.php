@@ -4,8 +4,6 @@ require_once "vendor/autoload.php";
 
 ob_implicit_flush();
 
-define("PATH", __DIR__);
-
 $guzzle = new \GuzzleHttp\Client();
 
 $dirname = __DIR__."/files";
@@ -13,10 +11,10 @@ $dirname = __DIR__."/files";
 
 
 function readDirectory($dirName){
-    chdir($dirName);
     $dir = dir($dirName);
     $dirCont = [];
     while($file = $dir->read()){
+        chdir($dirName);
         if($file!=='.' && $file!=='..'){
             if(!is_dir($file) && preg_match('/.*\.zip/', $file)){
                 $dirCont[$file] = $dirName."/".$file;
@@ -31,9 +29,9 @@ function readDirectory($dirName){
 
 
 
-//echo '<pre>';
-//print_r($tree = readDirectory($dirname));
-//echo '</pre>';
+echo '<pre>';
+print_r($tree = readDirectory($dirname));
+echo '</pre>';
 
 $tree = readDirectory($dirname);
 
