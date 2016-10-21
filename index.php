@@ -11,6 +11,7 @@ $guzzle = new \GuzzleHttp\Client();
 $dirname = __DIR__."/files";
 
 
+
 function readDirectory($dirName){
     chdir($dirName);
     $dir = dir($dirName);
@@ -27,6 +28,7 @@ function readDirectory($dirName){
 
     return $dirCont;
 }
+
 
 
 //echo '<pre>';
