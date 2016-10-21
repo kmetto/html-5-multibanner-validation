@@ -29,14 +29,14 @@ function readDirectory($dirName){
 
 
 
-echo '<pre>';
+echo '<details><summary></summary><p><pre>';
 print_r($tree = readDirectory($dirname));
-echo '</pre>';
+echo '</pre></p></details>';
 
 $tree = readDirectory($dirname);
 
 array_walk_recursive($tree, function($val, $key) use ($guzzle){
-    echo date("G:i:s",microtime(true))." Начало проверки файла ".$val."<br>";
+    echo "<div class='line'><span class='date'>".date("G:i:s",microtime(true))."</span><span class='message'>Начало проверки файла".$val."</span></div>";
     $response =  $guzzle->request("POST", "https://h5validator.appspot.com/api/policy/adwords", [
         'multipart' => [
             [
