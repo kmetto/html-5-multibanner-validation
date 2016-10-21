@@ -53,7 +53,7 @@ array_walk_recursive($tree, function($val, $key) use ($guzzle){
     ]);
 
     $response = $response->getBody()->getContents();
-    $response = json_decode(substr($response, strpos($response,',')+1));
+    $response = json_decode(substr($response, strpos($response,',')+1), false, 512, JSON_BIGINT_AS_STRING);
 
     echo date("G:i:s",microtime(true))." Файл ".basename($val)." обработан, <a href=\"https://h5validator.appspot.com/adwords/result/{$response->response->result}\" target='_blank'>отчет</a><br>-------------------<br>";
 
