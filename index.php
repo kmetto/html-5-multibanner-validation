@@ -6,6 +6,8 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<?php require_once('core.php') ?>
+	<div id="wrapper">
+		<?php require_once('core.php') ?>
+	</div>
 </body>
 </html>
