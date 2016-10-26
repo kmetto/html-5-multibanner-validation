@@ -59,12 +59,14 @@ function getResult($url){
       $response = $response->getBody()->getContents();
       $response = json_decode(substr($response, strpos($response,',')+1), false, 512, JSON_BIGINT_AS_STRING);
 
+
       echo "<div class='line end'><span class='date'>".date("G:i:s",microtime(true))."</span><span>Файл ".basename($val)." обработан</span></div>";
       $result = getResult("https://h5validator.appspot.com/adwords/result/{$response->response->result}");
       if(!empty($result)){
         foreach ($result as $check => $value) {
           $status = ($value)? "ok":"error";
           echo "<div class='check ".$status."'>".$check."</div>";
+
         }
 
       }
@@ -75,3 +77,4 @@ function getResult($url){
 });
 
 echo "<div class='final'>Все баннеры проверены</div>";
+
