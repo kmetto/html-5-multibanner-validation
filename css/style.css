@@ -79,21 +79,21 @@ code:after {
 	margin-right: 0;
 }
 
-.check.ok:hover {
+.check.PASS:hover {
 	background-color: hsla(113, 40%, 54%, 0.1);
 }
 
-.check.ok {
+.check.PASS {
     color: #80b959;
     border: 1px solid #3c4636;
 }
 
-.check.error {
+.check.FAIL {
 	color: #EA4444;
 	border: 1px solid #EA4444;
 }
 
-.check.error:hover {
+.check.FAIL:hover {
 	background-color: hsla(0, 100%, 50%, 0.1);
 }
 
