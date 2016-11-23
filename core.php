@@ -67,7 +67,8 @@ array_walk_recursive($tree, function ($val, $key) use ($guzzle) {
             echo "<div class='check " . $result->status . "'>" . $result->name . "</div>";
         }
 
-        echo "<iframe frameborder=\"0\" width='{$report->response->result->previews[0]->width}' height='{$report->response->result->previews[0]->height}' src='https:{$report->response->result->previews[0]->src}'></iframe>";
+        echo "<br><iframe frameborder=\"0\" width='{$report->response->result->previews[0]->width}' height='{$report->response->result->previews[0]->height}' src='https:{$report->response->result->previews[0]->src}'></iframe>";
+        echo "</div>";
     } catch (Exception $e) {
         echo $e->getMessage();
     }
