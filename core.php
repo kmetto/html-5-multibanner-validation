@@ -52,11 +52,7 @@ array_walk_recursive($tree, function ($val, $key) use ($guzzle) {
         ]);
 
         $response = $response->getBody()->getContents();
-
         $response = json_decode(substr($response, strpos($response, ',') + 1), false, 512, JSON_BIGINT_AS_STRING);
-
-        https://h5validator.appspot.com/api/policy/adwords/result/6554295996514304
-
         $response = file_get_contents("https://h5validator.appspot.com/api/policy/adwords/result/{$response->response->result}");
         $report = json_decode(substr($response, strpos($response, ',') + 1), false, 512, JSON_BIGINT_AS_STRING);
 
@@ -67,7 +63,7 @@ array_walk_recursive($tree, function ($val, $key) use ($guzzle) {
             echo "<div class='check " . $result->status . "'>" . $result->name . "</div>";
         }
 
-        echo "<br><iframe frameborder=\"0\" width='{$report->response->result->previews[0]->width}' height='{$report->response->result->previews[0]->height}' src='https:{$report->response->result->previews[0]->src}'></iframe>";
+        echo "<br><div id='display'><iframe frameborder=\"0\" width='{$report->response->result->previews[0]->width}' height='{$report->response->result->previews[0]->height}' src='https:{$report->response->result->previews[0]->src}'></iframe></div>";
         echo "</div>";
     } catch (Exception $e) {
         echo $e->getMessage();
