@@ -7,7 +7,9 @@
 </head>
 <body>
 	<div id="wrapper">
+	<a href="https://h5validator.appspot.com/adwords#/ass">Перейти на оригинал</a>
 		<?php require_once('core.php') ?>
 	</div>
+	
 </body>
 </html>
